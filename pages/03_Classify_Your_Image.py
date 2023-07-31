@@ -11,6 +11,8 @@ def sign_predict(_img):
 
     img_array = preprocess_image(img_array)
 
+    print(img_array.shape)
+
     predict_x = reconstructed_model.predict(img_array)
     predicted_classes = np.argmax(predict_x, axis=1)
     
