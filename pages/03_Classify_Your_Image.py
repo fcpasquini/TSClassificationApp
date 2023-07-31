@@ -4,10 +4,10 @@ from PIL import Image
 import streamlit as st
 
 
-@st.cache
-def sign_predict(img):
+@st.cache_data
+def sign_predict(_img):
     reconstructed_model = load_model('./models/TSignClass.keras')
-    img_array = np.array(img, dtype = np.float32)
+    img_array = np.array(_img, dtype = np.float32)
 
     img_array = preprocess_image(img_array)
 
@@ -35,7 +35,7 @@ def class_page():
         return predicted_classes, confidence
 
     else:
-        pass
+        return [], 0
 
 def get_label_text(int_label):
     dict_labels = {0: 'Speed limit 20km/h', 1: 'Speed limit 30km/h', 2: 'Speed limit 50km/h',  3: 'Speed limit 60km/h',
@@ -78,4 +78,4 @@ predicted_classes, confidence = class_page()
 button_click = st.button('Predict my image:')
 
 if button_click:
-    st.text(f'The predicted class for your image is: {predicted_classes[0]}-{get_label_text(predicted_classes[0])}, with a confidence of {confidence}.')
+    st.text(f'The predicted class for your image is: {predicted_classes[0]}-{get_label_text(predicted_classes[0])}, with a confidence of {round(confidence * 100, 4)}%.')
