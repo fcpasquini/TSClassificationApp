@@ -1,9 +1,9 @@
 import numpy as np
-import keras
+from keras.models import load_model
 from PIL import Image
 import streamlit as st
 
-reconstructed_model = keras.models.load_model("./models/TSignClass.keras")
+reconstructed_model = load_model("./models/TSignClass.keras")
 
 def get_label_text(int_label):
     dict_labels = {0: 'Speed limit 20km/h', 1: 'Speed limit 30km/h', 2: 'Speed limit 50km/h',  3: 'Speed limit 60km/h',
