@@ -4,9 +4,9 @@ from PIL import Image
 import streamlit as st
 
 
-@st.cache_data
 def sign_predict(_img):
     reconstructed_model = load_model('./models/TSignClass.keras')
+
     img_array = np.array(_img, dtype = np.float32)
 
     img_array = preprocess_image(img_array)
