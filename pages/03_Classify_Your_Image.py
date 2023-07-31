@@ -3,7 +3,39 @@ from keras.models import load_model
 from PIL import Image
 import streamlit as st
 
-reconstructed_model = load_model("./models/TSignClass.keras")
+
+@st.cache
+def sign_predict(img):
+    reconstructed_model = load_model('./models/TSignClass.keras')
+    img_array = np.array(img, dtype = np.float32)
+
+    img_array = preprocess_image(img_array)
+
+    predict_x = reconstructed_model.predict(img_array)
+    predicted_classes = np.argmax(predict_x, axis=1)
+    
+    confidence = np.max(predict_x)
+    return predicted_classes, confidence
+
+
+def class_page():
+    # Add an "Upload Image" widget
+
+    uploaded_image = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png", "jfif"])
+
+    if uploaded_image is not None:
+
+        # Display the uploaded image
+        st.image(uploaded_image, caption='Uploaded Image')
+
+        img = Image.open(uploaded_image)
+
+        predicted_classes, confidence = sign_predict(img)
+
+        return predicted_classes, confidence
+
+    else:
+        pass
 
 def get_label_text(int_label):
     dict_labels = {0: 'Speed limit 20km/h', 1: 'Speed limit 30km/h', 2: 'Speed limit 50km/h',  3: 'Speed limit 60km/h',
@@ -41,32 +73,9 @@ def preprocess_image(img_array):
 
     return resized_image_array
 
-def class_page():
-    # Add an "Upload Image" widget
-
-    uploaded_image = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png", "jfif"])
-
-    if uploaded_image is not None:
-
-        # Display the uploaded image
-        st.image(uploaded_image, caption='Uploaded Image')
-
-        img = Image.open(uploaded_image)
-        img_array = np.array(img)
-            
-        img_array = preprocess_image(img_array)
-
-        predict_x = reconstructed_model.predict(img_array)
-        predicted_classes = np.argmax(predict_x, axis=1)
-
-        return predicted_classes
-
-    else:
-        pass
-
-predicted_classes = class_page()
+predicted_classes, confidence = class_page()
 
 button_click = st.button('Predict my image:')
 
 if button_click:
-    st.text(f'The predicted class for your image is: {predicted_classes[0]}-{get_label_text(predicted_classes[0])}')
+    st.text(f'The predicted class for your image is: {predicted_classes[0]}-{get_label_text(predicted_classes[0])}, with a confidence of {confidence}.')
