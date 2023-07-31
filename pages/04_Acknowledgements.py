@@ -7,7 +7,7 @@ def create_main_pg():
     # Create page
     st.set_page_config(page_title='Acknowledgements', page_icon=':car:', layout = 'wide')
     
-    with open('./page_content/04_Acknowledgements.txt') as file:
+    with open('./page_content/04_acknowledgements.txt') as file:
         page_content = file.read()
 
     st.markdown(page_content, unsafe_allow_html=True)

@@ -1,3 +1,6 @@
+import numpy as np
+import keras
+from PIL import Image
 import streamlit as st
 
 class StreamlitApp:
@@ -31,8 +34,6 @@ class StreamlitApp:
         
         with open('./page_content/welcome.txt') as file:
             page_content = file.read()
-
-        #page_content = self.encapsulate_in_css(page_content, '/css/main.css')
 
         st.markdown(page_content, unsafe_allow_html=True)
 
