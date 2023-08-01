@@ -1,7 +1,11 @@
 <h2>Acknowledgments of the project</h2>
 
-<li><a href='https://www.udemy.com/course/deep-learning-machine-learning-practical/'>Udemy Course: Machine Learning Practical Workout | 8 Real-World Projects</a></li>
+<p>I would like to thank all parties involved in the project. They are:</p>
 
-<li><a href='https://benchmark.ini.rub.de/gtsrb_dataset.html'>Institut fur Neuroinformatik</a></li>
+<li><a href='https://www.udemy.com/course/deep-learning-machine-learning-practical/'>Udemy Course: Machine Learning Practical Workout | 8 Real-World Projects: for its simple and deep instruction that allowed me to create my own apps;</a></li>
 
-<li><a href='https://benchmark.ini.rub.de/gtsrb_dataset.html'>federal ministry of education and research</a></li>
+<li><a href='https://benchmark.ini.rub.de/gtsrb_dataset.html'>Institut fur Neuroinformatik: for its participation and investment in the development and sharing of the database;</a></li>
+
+<li><a href='https://benchmark.ini.rub.de/gtsrb_dataset.html'>Federal ministry of education and research: for its participation and investment in the development and sharing of the database;</a></li>
+
+<li><a href='https://andriigoz-traffic-signs-classification-streamlit-app-voqm5s.streamlit.app/'>Andriigoz: which its app is very similar to mine and served as an inspiration.</a></li>

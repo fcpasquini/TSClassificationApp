@@ -4,7 +4,11 @@
 
 <p>This project is based on the Udemy course <b>'Machine Learning Practical Workout | 8 Real-World Projects'</b>, especifically the <b>project 5 - 'Le-NET Deep Network - Traffic Sign Classification'</b>.</p>
 
-<p>The objective of this project is to deploy a Convolutional Neural Network that I created, so any user can try out my model to predict its own images of traffic signs.</p>
+<p>The objective of this project is to deploy a Convolutional Neural Network that I created, so any user can try out my model to predict its own images of traffic signs. </p>
+
+<p>The source code of the project that created the Convolutional Neural Network can be found on <a href='https://github.com/fcpasquini/TrafficSignClassification'>Github</a></p>
+
+<p>The source code of the streamlit app that served to deploy this webpage can be found on <a href='https://github.com/fcpasquini/TSClassificationApp'>Github</a></p>
 
 <p>The project is divided in the following pages:</p>
 
